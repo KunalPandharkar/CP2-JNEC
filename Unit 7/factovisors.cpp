@@ -1,22 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int x,y,d;
 
- 
-void extendedEuclid(int a, int b) {
-    if (b == 0) { x = 1; y = 0; d = a; return; } 
-    extendedEuclid(b, a % b); 
-    int x1 = y;
-    int y1 = x - (a / b) * y;
-    x = x1;
-    y = y1;
-}
 
 int main() {
-    int a,b;
-    while(scanf("%d %d",&a,&b) != EOF) {
-        extendedEuclid(a,b);
-        printf("%d %d %d\n",x,y,d);
+      int a,b,i,flag=0;
+      while(scanf("%d %d",&a,&b) != EOF) {
+        long int fact=1L;
+       
+        for(i=1;i<=a;i++){    
+            fact=fact*i;
+            if(fact % b == 0){
+               flag=1;
+            }
+            else{
+                flag=0;
+            }
+         }
+         if(flag){
+               cout << b << " divides " << a << "!\n";
+               
+            }
+            else{
+                cout << b << " does not divides " << a << "!\n";
+               
+            }
+        
     }
 }
