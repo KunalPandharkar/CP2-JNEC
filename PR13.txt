@@ -1,0 +1,64 @@
+create new folder in res-> 
+named raw
+paste audio in that 
+
+MainActivity.java
+
+MediaPlayer mp;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mp=MediaPlayer.create(MainActivity.this,R.raw.tumsemilnekodilartahaidj);
+    }
+
+    public void play(View view) {
+        mp.start();
+    }
+
+    public void pause(View view) {
+        mp.pause();
+    }
+
+    public void stop(View view) {
+        mp.stop();
+    }
+
+activity_main.xml
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="133dp"
+        android:layout_marginBottom="135dp"
+        android:onClick="play"
+        android:text="Play"
+        app:layout_constraintBottom_toBottomOf="@+id/btn2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="292dp"
+        android:onClick="pause"
+        android:text="Puase"
+        app:layout_constraintStart_toStartOf="@+id/btn1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:onClick="stop"
+        android:text="Stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn2" />
+
+

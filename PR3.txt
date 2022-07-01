@@ -1,0 +1,55 @@
+MainActivity.java
+
+EditText e1;
+    TextView t1;
+    String s;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        e1=findViewById(R.id.et1);
+        t1=findViewById(R.id.tv1);
+
+    }
+
+    public void set(View view) {
+        s=e1.getText().toString();
+        t1.setText(""+s);
+    }
+
+
+activity_main.xml
+
+<TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="272dp"
+        android:text="TEXT display here"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="134dp"
+        android:ems="10"
+        android:hint="Enter TEXT"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="61dp"
+        android:onClick="set"
+        android:text="SET"
+        app:layout_constraintStart_toStartOf="@+id/et1"
+        app:layout_constraintTop_toBottomOf="@+id/et1" />

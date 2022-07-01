@@ -1,0 +1,54 @@
+MainAcitivity.java
+
+Button bt1,bt2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bt1=findViewById(R.id.btn1);
+        bt2=findViewById(R.id.btn2);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Onclick Event Performed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        bt2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent i=new Intent(Intent.ACTION_DIAL);
+                i.setData(Uri.parse("tel:+9187896542"));
+                startActivity(i);
+                return false;
+            }
+        });
+    }
+
+activity_main.xml
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="164dp"
+        android:text="Click Here Onclick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Click Here Onlong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+
+
+AndoridManifest.xml
+add this permission
+<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>

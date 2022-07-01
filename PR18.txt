@@ -1,0 +1,42 @@
+MainActivity.java 
+
+EditText e1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        e1=findViewById(R.id.et1);
+    }
+
+    public void call(View view) {
+        String no=e1.getText().toString();
+        Intent i=new Intent (Intent.ACTION_DIAL);
+        i.setData(Uri.parse("tel:+91 " +no));
+        startActivity(i);
+    }
+
+activity_main.xml
+
+<EditText
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:ems="10"
+        android:hint="Enter Phone number"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="call"
+        android:text="Call number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+

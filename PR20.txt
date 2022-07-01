@@ -1,0 +1,62 @@
+MainActivity.java
+
+ConstraintLayout constraintLayout ;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        constraintLayout=findViewById(R.id.cs1);
+    }
+
+    public void colorred(View view) {
+        constraintLayout.setBackgroundResource(R.color.red);
+    }
+
+    public void colorOR(View view) {
+        constraintLayout.setBackgroundResource(R.color.orange);
+    }
+
+    public void colorYL(View view) {
+        constraintLayout.setBackgroundResource(R.color.yelloe);
+    }
+
+activity_main.xml
+
+ <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="93dp"
+        android:onClick="colorred"
+        android:text="Red"
+        app:layout_constraintBottom_toTopOf="@+id/btn2"
+        app:layout_constraintStart_toStartOf="@+id/btn2" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="306dp"
+        android:onClick="colorOR"
+        android:text="Orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="101dp"
+        android:onClick="colorYL"
+        android:text="Yellow"
+        app:layout_constraintStart_toStartOf="@+id/btn2"
+        app:layout_constraintTop_toBottomOf="@+id/btn2" />
+
+colors.xml
+
+ 	<color name="orange">#f77f07</color>
+    <color name="red">#eb3434</color>
+    <color name="yelloe">#ebdc34</color>
