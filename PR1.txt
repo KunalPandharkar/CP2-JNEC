@@ -1,46 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
 
-MainActivity.java
+bool isValid(string s)
+{
+    string substr;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] == '(' || s[i] == '{' || s[i] == '[')
+            substr.push_back(s[i]);
 
-@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Log.d("lifecycle","onCreate invoked");
+        if (s[i] == ')')
+            if (substr.length() > 0 && substr[substr.length() - 1] == '(')
+                substr.pop_back();
+            else
+                substr.push_back(s[i]);
+
+        if (s[i] == '}')
+            if (substr.length() > 0 && substr[substr.length() - 1] == '{')
+                substr.pop_back();
+            else
+                substr.push_back(s[i]);
+
+        if (s[i] == ']')
+            if (substr.length() > 0 && substr[substr.length() - 1] == '[')
+                substr.pop_back();
+            else
+                substr.push_back(s[i]);
     }
+    if (substr.empty())
+        return true;
+    return false;
+}
 
-    protected void onStart() {
-        super.onStart();
-        Log.d("lifecycle","onStart invoked");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("lifecycle","onRestart invoked");
-    }
-
-    protected void onPause() {
-        super.onPause();
-        Log.d("lifecycle","onPause invoked");
-    }
-
-    protected void onResume() {
-        super.onResume();
-        Log.d("lifecycle","onResume invoked");
-    }
-
-    protected void onStop() {
-        super.onStop();
-        Log.d("lifecycle","onStop invoked");
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("lifecycle","onDestroy invoked");
-    }
-
-activity_main.xml
- bydefault code
-
-
-see o/p in Logcat
+int main()
+{
+    string s = "()";
+    cout << isValid(s);
+}
